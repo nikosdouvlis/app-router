@@ -12,15 +12,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/backend": "file:.yalc/@clerk/backend",
-    "@clerk/clerk-react": "file:.yalc/@clerk/clerk-react",
-    "@clerk/nextjs": "file:.yalc/@clerk/nextjs",
-    "@clerk/shared": "file:.yalc/@clerk/shared",
-    "@clerk/types": "file:.yalc/@clerk/types",
+    "@clerk/nextjs": "^4.21.7",
     "@types/node": "18.16.0",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
-    "next": "^13.4.4",
+    "next": "^13.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
