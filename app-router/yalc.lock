@@ -1,0 +1,25 @@
+{
+  "version": "v1",
+  "packages": {
+    "@clerk/nextjs": {
+      "signature": "dc2c2f1be13282828afbcb10b6a965c9",
+      "file": true
+    },
+    "@clerk/clerk-react": {
+      "signature": "02f35a4759530bcf0bbfd034a9d294a1",
+      "file": true
+    },
+    "@clerk/backend": {
+      "signature": "8fdb46694adf8f21000d4fd1aba843a6",
+      "file": true
+    },
+    "@clerk/types": {
+      "signature": "d0fdf38fec835e884efd6c659cb6f3ee",
+      "file": true
+    },
+    "@clerk/shared": {
+      "signature": "13fbf8c56502417929b09ad391a8a6e3",
+      "file": true
+    }
+  }
+}
