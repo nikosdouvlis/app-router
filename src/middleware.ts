@@ -1,30 +1,15 @@
-import { authMiddleware } from '@clerk/nextjs';
-import { NextResponse } from 'next/server';
+import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
-  publicRoutes: ['/'],
-  beforeAuth: req => {
-    // console.log('middleware:beforeAuth', req.url);
-    if (req.nextUrl.searchParams.get('redirect')) {
-      return NextResponse.redirect('https://google.com');
-    }
-    const res = NextResponse.next();
-    res.headers.set('x-before-auth', 'true');
-    return res;
-  },
-  afterAuth: (auth, _req) => {
-    // console.log('middleware:afterAuth', auth.userId, req.url, auth.isPublicRoute);
-    if (!auth.userId && !auth.isPublicRoute) {
-      const url = new URL('/sign-in', req.url);
-      url.searchParams.append('redirect_url', req.url);
-      return NextResponse.redirect(url);
-    }
-    const res = NextResponse.next();
-    res.headers.set('x-after-auth', 'true');
-    return res;
-  },
+  publicRoutes: ["/", "/api(.*)"],
+  beforeAuth: (req) => {
+    console.log("middleware:beforeAuth 1", req.url);
+    console.log("middleware:beforeAuth 2", req.headers.get('host'));
+    console.log("middleware:beforeAuth 3", process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL);
+    console.log("middleware:beforeAuth 4", process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL);
+  }
 });
 
 export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
